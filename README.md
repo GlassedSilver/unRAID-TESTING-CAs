@@ -1,2 +1,4 @@
 # unRAID-TESTING-CAs
 TESTING REPO FOR unRAID COMMUNITY APPLICATIONS. >> NO DEPLOY &lt;&lt; USE AT OWN RISK.
+
+DO NOT ask for support for these.
