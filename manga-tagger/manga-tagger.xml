@@ -30,7 +30,7 @@ Uses a forked version with fixes for users who like to get the volume number as 
 Please read the Readme, if will provide you with details how to define exceptions in an exceptions.json file. (stored in data subdirectory of the App Config folder)</Overview>
   <Category>Tools: MediaApp:Books</Category>
   <WebUI/>
-  <TemplateURL/>
+  <TemplateURL>https://github.com/GlassedSilver/unRAID-TESTING-CAs/raw/main/manga-tagger/manga-tagger.xml</TemplateURL>
   <Icon>https://avatars.githubusercontent.com/u/11070210?v=4</Icon>
   <ExtraParams>--restart unless-stopped</ExtraParams>
   <PostArgs/>
