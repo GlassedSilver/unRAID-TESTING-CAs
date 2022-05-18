@@ -1,0 +1,87 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>manga-tagger</Name>
+  <Repository>promidius/manga-tagger:nightly</Repository>
+  <Registry>https://hub.docker.com/r/promidius/manga-tagger/</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://hub.docker.com/r/promidius/manga-tagger/</Support>
+  <Project>https://github.com/ThePromidius/Manga-Tagger</Project>
+  <Overview>A tool to rename and write metadata to digital manga chapters.&#xD;
+&#xD;
+This fork doesn't require FMD2.&#xD;
+Recommended to use with FMD2-wine (docker-fmd2)&#xD;
+&#xD;
+### ALT FORK IN USE&#xD;
+Uses a forked version with fixes for users who like to get the volume number as well.&#xD;
+&#xD;
+### Features&#xD;
+- Does not require FMD2&#xD;
+- Only scrapes metadata from Anilist&#xD;
+- Support for Manga/Manhwa/Manhua&#xD;
+- Download cover image for each chapter&#xD;
+- Slightly increased filename parsing capability&#xD;
+- Docker image available&#xD;
+- Manga specific configuration&#xD;
+&#xD;
+### Problems with matching?&#xD;
+Please read the Readme, if will provide you with details how to define exceptions in an exceptions.json file. (stored in data subdirectory of the App Config folder)</Overview>
+  <Category>Tools: MediaApp:Books</Category>
+  <WebUI/>
+  <TemplateURL/>
+  <Icon>https://avatars.githubusercontent.com/u/11070210?v=4</Icon>
+  <ExtraParams>--restart unless-stopped</ExtraParams>
+  <PostArgs/>
+  <CPUset/>
+  <DateInstalled/>
+  <DonateText/>
+  <DonateLink/>
+  <Description>A tool to rename and write metadata to digital manga chapters.&#xD;
+&#xD;
+This fork doesn't require FMD2.&#xD;
+Recommended to use with FMD2-wine (docker-fmd2)&#xD;
+&#xD;
+### ALT FORK IN USE&#xD;
+Uses a forked version with fixes for users who like to get the volume number as well.&#xD;
+&#xD;
+### Features&#xD;
+- Does not require FMD2&#xD;
+- Only scrapes metadata from Anilist&#xD;
+- Support for Manga/Manhwa/Manhua&#xD;
+- Download cover image for each chapter&#xD;
+- Slightly increased filename parsing capability&#xD;
+- Docker image available&#xD;
+- Manga specific configuration&#xD;
+&#xD;
+### Problems with matching?&#xD;
+Please read the Readme, if will provide you with details how to define exceptions in an exceptions.json file. (stored in data subdirectory of the App Config folder)</Description>
+  <Config Name="Image Cover" Target="MANGA_TAGGER_IMAGE_COVER" Default="false" Mode="" Description="Container Variable: MANGA_TAGGER_IMAGE_COVER (Will write cover image to EVERY cbz! This will probably interfere with chapter previews in your manga library!)" Type="Variable" Display="always" Required="true" Mask="false">false</Config>
+  <Config Name="Adult Results enabled?" Target="MANGA_TAGGER_ADULT_RESULT" Default="false" Mode="" Description="Maybe consider downloading your adult material to a different folder and having a second instance of manga-tagger with this flag set to 'true' scan it. Enabling adult results can mess with your scraping quality for non-adult material. The official docs say this about this setting: " Type="Variable" Display="always" Required="true" Mask="false">false</Config>
+  <Config Name="Rename Files" Target="MANGA_TAGGER_RENAME_FILE" Default="false" Mode="" Description="Whether Manga-Tagger should rename files before moving them to library" Type="Variable" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Write ComicInfo" Target="MANGA_TAGGER_WRITE_COMICINFO" Default="true" Mode="" Description="Container Variable: MANGA_TAGGER_WRITE_COMICINFO" Type="Variable" Display="always" Required="true" Mask="false">true</Config>
+  <Config Name="App Config" Target="/config" Default="/mnt/user/appdata/manga-tagger" Mode="rw" Description="Container Path: /config" Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/manga-tagger</Config>
+  <Config Name="Downloads Folder (watched/move FROM)" Target="/downloads" Default="" Mode="rw" Description="Downloads Folder (basically this is your watched folder, e.g. FMD2's output path)" Type="Path" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="Library Folder (move TO)" Target="/manga" Default="" Mode="rw" Description="Library Folder (basically this is where Manga-Tagger will move your files to, e.g. your Kavita/Mango/Komga Library)" Type="Path" Display="always" Required="true" Mask="false"></Config>
+  <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="Container Variable: PUID" Type="Variable" Display="advanced" Required="true" Mask="false">99</Config>
+  <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="Container Variable: PGID" Type="Variable" Display="advanced" Required="true" Mask="false">100</Config>
+  <Config Name="UMASK" Target="UMASK" Default="002" Mode="" Description="Container Variable: UMASK" Type="Variable" Display="advanced" Required="true" Mask="false">002</Config>
+  <Config Name="Timezone" Target="TZ" Default="" Mode="" Description="Set your Time Zone here (e.g. Europe/Berlin)" Type="Variable" Display="advanced" Required="true" Mask="false">Europe/Berlin</Config>
+  <Config Name="DEBUG_MODE" Target="MANGA_TAGGER_DEBUG_MODE" Default="false" Mode="" Description="Container Variable: MANGA_TAGGER_DEBUG_MODE" Type="Variable" Display="advanced" Required="false" Mask="false">false</Config>
+  <Config Name="Dry Run Mode" Target="MANGA_TAGGER_DRY_RUN" Default="true" Mode="" Description="This should remain true if you want granular control over DB_INSERT, RENAME_FILE and WRITE_COMICINFO since DRY_RUN will overwrite these globally." Type="Variable" Display="advanced" Required="true" Mask="false">true</Config>
+  <Config Name="Threads" Target="MANGA_TAGGER_THREADS" Default="8" Mode="" Description="Container Variable: MANGA_TAGGER_THREADS" Type="Variable" Display="advanced" Required="true" Mask="false">8</Config>
+  <Config Name="Max Queue Size" Target="MANGA_TAGGER_MAX_QUEUE_SIZE" Default="0" Mode="" Description="Container Variable: MANGA_TAGGER_MAX_QUEUE_SIZE" Type="Variable" Display="advanced" Required="true" Mask="false">0</Config>
+  <Config Name="DB Insertion" Target="MANGA_TAGGER_DB_INSERT" Default="false" Mode="" Description="Enable DB usage? (mongodb, needed)" Type="Variable" Display="advanced" Required="true" Mask="false">true</Config>
+  <Config Name="Database Name" Target="MANGA_TAGGER_DB_NAME" Default="manga_tagger" Mode="" Description="Needs to be set if you enabled DB Insertion" Type="Variable" Display="advanced" Required="false" Mask="false">manga_tagger</Config>
+  <Config Name="MongoDB Host" Target="MANGA_TAGGER_DB_HOST_ADDRESS" Default="" Mode="" Description="Needs to be set to target your MongoDB instance" Type="Variable" Display="advanced" Required="true" Mask="false"></Config>
+  <Config Name="Database Port" Target="MANGA_TAGGER_DB_PORT" Default="27017" Mode="" Description="Needs to be set to target your MongoDB instance" Type="Variable" Display="advanced" Required="true" Mask="false">27017</Config>
+  <Config Name="Database User" Target="MANGA_TAGGER_DB_USERNAME" Default="" Mode="" Description="If your MongoDB database has authentication enabled (the default is officially to not use auth), provide the DB User here" Type="Variable" Display="advanced" Required="false" Mask="false"/>
+  <Config Name="Database Password" Target="MANGA_TAGGER_DB_PASSWORD" Default="" Mode="" Description="If your MongoDB database has authentication enabled, provide the password here" Type="Variable" Display="advanced" Required="false" Mask="true"/>
+  <Config Name="Database Auth Source" Target="MANGA_TAGGER_DB_AUTH_SOURCE" Default="admin" Mode="" Description="Needs to be set if you enabled DB Insertion (This is basically the table in your mongodb with the user list, leave at default if unsure)" Type="Variable" Display="advanced" Required="false" Mask="false">admin</Config>
+  <Config Name="Database Selection Timeout" Target="MANGA_TAGGER_DB_SELECTION_TIMEOUT" Default="10000" Mode="" Description="Needs to be set if you enabled DB Insertion" Type="Variable" Display="advanced" Required="false" Mask="false">10000</Config>
+  <Config Name="Logging Level" Target="MANGA_TAGGER_LOGGING_LEVEL" Default="info" Mode="" Description="Container Variable: MANGA_TAGGER_LOGGING_LEVEL" Type="Variable" Display="advanced" Required="false" Mask="false">info</Config>
+  <Config Name="Logging Console" Target="MANGA_TAGGER_LOGGING_CONSOLE" Default="true" Mode="" Description="Container Variable: MANGA_TAGGER_LOGGING_CONSOLE" Type="Variable" Display="advanced" Required="false" Mask="false">true</Config>
+  <Config Name="Logging file" Target="MANGA_TAGGER_LOGGING_FILE" Default="true" Mode="" Description="Container Variable: MANGA_TAGGER_LOGGING_FILE" Type="Variable" Display="advanced" Required="false" Mask="false">true</Config>
+  <Config Name="Logging JSON" Target="MANGA_TAGGER_LOGGING_JSON" Default="false" Mode="" Description="Container Variable: MANGA_TAGGER_LOGGING_JSON" Type="Variable" Display="advanced" Required="false" Mask="false">false</Config>
+</Container>
